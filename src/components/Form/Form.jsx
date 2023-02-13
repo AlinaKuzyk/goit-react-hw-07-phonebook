@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import { nanoid } from 'nanoid';
 import * as yup from 'yup';
 import {
   FormSlyled,
@@ -9,7 +8,7 @@ import {
   StyledInput,
 } from './FormStyled.styled';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contacts/contactsSlice';
+import { addContact } from 'redux/contacts/operations';
 
 const phoneRegExp =
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
@@ -42,7 +41,6 @@ const ContactForm = ({ checkedDuplicate }) => {
     // values - собирает значения инпутов, далее в {actions} можно просмотреть все
     //  возможные методы для формы
     const newContact = {
-      id: nanoid(),
       name: values.name,
       number: values.number,
     };
@@ -76,7 +74,7 @@ const ContactForm = ({ checkedDuplicate }) => {
             Number
             <StyledInput
               type="tel"
-              name="number"
+              name="phone"
               id="number"
               placeholder="Enter your phone number"
             />

@@ -3,8 +3,8 @@ import ContactItem from 'components/ContactList/ContactItem';
 const ContactList = ({ contacts }) => {
   return (
     <ul>
-      {contacts.map(({ name, number, id }) => (
-        <ContactItem key={id} name={name} number={number} id={id} />
+      {contacts.map(({ name, phone, id }) => (
+        <ContactItem key={id} name={name} number={phone} id={id} />
       ))}
     </ul>
   );

@@ -10,7 +10,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 
-const phoneRegExp = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+const phoneRegExp = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/;
 
 const validationSchemeForm = yup.object().shape({
   name: yup
@@ -73,7 +73,7 @@ const ContactForm = ({ checkedDuplicate }) => {
             Number
             <StyledInput
               type="tel"
-              name="phone"
+              name="number"
               id="number"
               placeholder="Enter your phone number"
             />
